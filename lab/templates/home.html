@@ -2,20 +2,25 @@
 <html>
 <head>
     <title>Home</title>
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
 </head>
 <body>
+    <!-- <a href="{{url_for('delete.html')}}">delete a student</a> 
+    <a href="{{url_for('add.html')}}">add a student</a> -->
     <h1>Welcome to the home page!</h1>
     
     <hr>
-    
+    <div id="studentis">
     {% for student in students %}
     <p>
-	    Name: <a href="{{url_for('display_student', student_id=student.student_id)}}">{{student.name}}</a><br>
-	    Class: {{student.year}}<br>
-	    Finished Lab: {{student.finished_lab}}
+        Name: <a href="{{url_for('display_student', student_id=student.student_id)}}">{{student.name}}</a><br>
+        Class: {{student.year}}<br>
+        Finished Lab: {{student.finished_lab}}
     </p>
     {% endfor %}
+    </div>
 
+
+    
 </body>
 </html>
